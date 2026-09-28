@@ -189,6 +189,7 @@ nav.nav-links a:hover, nav.nav-links a.active {
   display: flex;
   align-items: center;
   gap: 0.4rem;
+  text-decoration: none;
   transition: all 0.2s;
   box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
 }
@@ -1178,6 +1179,37 @@ footer {
   display: flex;
   justify-content: flex-end;
   gap: 0.75rem;
+}
+
+/* Certificate Modal & Preview */
+.certificate-modal-card {
+  max-width: 860px;
+  width: 100%;
+}
+.certificate-preview-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #080c14;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  padding: 0.5rem;
+}
+.certificate-preview-img {
+  width: 100%;
+  height: auto;
+  max-height: 68vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+.certificate-card {
+  transition: transform 0.2s, border-color 0.2s;
+}
+.certificate-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
 }
 
 /* Print Styles */
