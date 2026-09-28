@@ -176,18 +176,91 @@ function copyEmailHero() {
   }
 }
 
+
+// --- Navigation Smooth Scroll (Without URL/Hash Exposition) ---
+function scrollToSection(id) {
+  const target = document.getElementById(id);
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState(null, '', window.location.pathname);
+    }
+  }
+}
+
+// --- Virtual Asset In-Memory Blob Virtualizer ---
+// Converts real file paths to virtual in-memory Blob URLs ('blob:https://.../<uuid>')
+// so that real server directories and file paths are NEVER displayed in HTML, img.src, or browser status bars.
+const VIRTUAL_ASSET_MAP = {
+  profile: 'assets/images/profile.jpg',
+  be10x: 'assets/certificate/Certificate.png',
+  micro1: 'assets/certificate/micro1_certificate.jpg'
+};
+
+const virtualBlobCache = {};
+
+async function resolveVirtualBlob(key) {
+  if (virtualBlobCache[key]) {
+    return virtualBlobCache[key];
+  }
+  const realUrl = VIRTUAL_ASSET_MAP[key];
+  if (!realUrl) return '';
+
+  try {
+    const res = await fetch(realUrl);
+    const blob = await res.blob();
+    const blobUrl = URL.createObjectURL(blob);
+    virtualBlobCache[key] = blobUrl;
+    return blobUrl;
+  } catch (err) {
+    return realUrl; // safe fallback
+  }
+}
+
+async function loadProtectedImages() {
+  const protectedImgs = document.querySelectorAll('img[data-asset]');
+  for (const img of protectedImgs) {
+    const assetKey = img.getAttribute('data-asset');
+    if (assetKey) {
+      const blobUrl = await resolveVirtualBlob(assetKey);
+      if (blobUrl) {
+        img.src = blobUrl;
+      }
+    }
+  }
+}
+
+// Load protected images automatically
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', loadProtectedImages);
+} else {
+  loadProtectedImages();
+}
 // --- Modals (Resume, Project Demo & Certificate) ---
 const resumeModal = document.getElementById('resume-modal');
 const demoModal = document.getElementById('demo-modal');
 
 // Clean resume download action without showcasing complete URL in browser status bar
-function downloadResume() {
-  const downloadLink = document.createElement('a');
-  downloadLink.href = 'assets/resume/Mahesh_Wakade_Sr_Frontend_Developer_Resume.pdf';
-  downloadLink.download = 'Mahesh_Wakade_Resume.pdf';
-  document.body.appendChild(downloadLink);
-  downloadLink.click();
-  document.body.removeChild(downloadLink);
+async function downloadResume() {
+  try {
+    const res = await fetch('assets/resume/Mahesh_Wakade_Sr_Frontend_Developer_Resume.pdf');
+    const blob = await res.blob();
+    const blobUrl = URL.createObjectURL(blob);
+    const downloadLink = document.createElement('a');
+    downloadLink.href = blobUrl;
+    downloadLink.download = 'Mahesh_Wakade_Resume.pdf';
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+    setTimeout(() => URL.revokeObjectURL(blobUrl), 10000);
+  } catch (e) {
+    const downloadLink = document.createElement('a');
+    downloadLink.href = 'assets/resume/Mahesh_Wakade_Sr_Frontend_Developer_Resume.pdf';
+    downloadLink.download = 'Mahesh_Wakade_Resume.pdf';
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+  }
 }
 
 function openResumeModal() {
@@ -310,7 +383,7 @@ const CERTIFICATE_DATA = {
   }
 };
 
-function openCertificateModal(key) {
+async function openCertificateModal(key) {
   const data = CERTIFICATE_DATA[key];
   if (!data || !certificateModal) return;
 
@@ -321,29 +394,32 @@ function openCertificateModal(key) {
 
   if (titleEl) titleEl.textContent = data.title;
   if (issuerEl) issuerEl.textContent = data.issuer;
-  if (imgEl) {
-    imgEl.src = data.image;
+  if (imgEl) { 
+    const blobUrl = await resolveVirtualBlob(key);
+    imgEl.src = blobUrl;
     imgEl.alt = data.title;
   }
 
   certificateModal.classList.add('open');
 }
 
-function downloadCurrentCertificate() {
+async function downloadCurrentCertificate() {
   const data = CERTIFICATE_DATA[activeCertificateKey];
   if (!data) return;
+  const blobUrl = await resolveVirtualBlob(activeCertificateKey);
   const downloadLink = document.createElement('a');
-  downloadLink.href = data.image;
+  downloadLink.href = blobUrl;
   downloadLink.download = data.downloadName;
   document.body.appendChild(downloadLink);
   downloadLink.click();
   document.body.removeChild(downloadLink);
 }
 
-function viewFullCertificate() {
-  const data = CERTIFICATE_DATA[activeCertificateKey];
-  if (!data) return;
-  openSecureLink(data.image);
+async function viewFullCertificate() {
+  const blobUrl = await resolveVirtualBlob(activeCertificateKey);
+  if (blobUrl) {
+    window.open(blobUrl, '_blank', 'noopener,noreferrer');
+  }
 }
 
 function closeCertificateModal(e) {
