@@ -43,10 +43,10 @@
         <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle theme">
           <span class="material-symbols-outlined">light_mode</span>
         </button>
-        <a href="assets/resume/Mahesh_Wakade_Sr_Frontend_Developer_Resume.pdf" download="Mahesh_Wakade_Resume.pdf" class="btn-download-resume">
+        <button class="btn-download-resume" onclick="downloadResume()" type="button">
           <span class="material-symbols-outlined" style="font-size: 16px;">download</span>
           Download Resume
-        </a>
+        </button>
         <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open navigation menu">
           <span class="material-symbols-outlined">menu</span>
         </button>
@@ -61,10 +61,10 @@
       <a href="#projects" onclick="closeMobileMenu()">Projects</a>
       <a href="#certifications" onclick="closeMobileMenu()">Certifications</a>
       <a href="#contact" onclick="closeMobileMenu()">Contact</a>
-      <a href="assets/resume/Mahesh_Wakade_Sr_Frontend_Developer_Resume.pdf" download="Mahesh_Wakade_Resume.pdf" class="btn-download-resume" style="width: 100%; justify-content: center;" onclick="closeMobileMenu()">
+      <button class="btn-download-resume" style="width: 100%; justify-content: center;" onclick="closeMobileMenu(); downloadResume();" type="button">
         <span class="material-symbols-outlined" style="font-size: 16px;">download</span>
         Download Resume
-      </a>
+      </button>
     </div>
   </header>
 
@@ -100,21 +100,21 @@
             <span>View My Work</span>
             <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
           </a>
-          <a href="assets/resume/Mahesh_Wakade_Frontend_Developer_Resume.pdf" download="Mahesh_Wakade_Resume.pdf" class="btn-secondary">
+          <button class="btn-secondary" onclick="downloadResume()" type="button">
             <span class="material-symbols-outlined" style="font-size: 18px; color: var(--primary);">download</span>
             <span>Download Resume</span>
-          </a>
+          </button>
         </div>
-
+        
         <div class="connect-row">
           <span style="font-size: 0.72rem; text-transform: uppercase;">Connect:</span>
-          <a href="https://www.linkedin.com/in/wakademahi0210/" target="_blank" rel="noopener noreferrer">
+          <button onclick="openSecureLink('https://www.linkedin.com/in/wakademahi0210/')" type="button">
             <span class="material-symbols-outlined" style="font-size: 15px;">link</span> LinkedIn
-          </a>
-          <a href="https://github.com/wakademahi/mahesh_wakade" target="_blank" rel="noopener noreferrer">
+          </button>
+          <button onclick="openSecureLink('https://github.com/wakademahi/mahesh_wakade')" type="button">
             <span class="material-symbols-outlined" style="font-size: 15px;">code</span> GitHub
-          </a>
-          <button onclick="copyEmailHero()">
+          </button>
+          <button onclick="copyEmailHero()" type="button">
             <span class="material-symbols-outlined" style="font-size: 15px;">mail</span>
             <span id="hero-email-text">Email</span>
           </button>
@@ -562,10 +562,10 @@
             </div>
             <div class="project-footer">
               <span style="color: var(--text-muted);">Open Source Experiment</span>
-              <a href="https://github.com/wakademahi/Practice-Project/tree/main/microfrontend-demo" target="_blank" rel="noopener noreferrer" class="btn-request-demo">
+              <button class="btn-request-demo" onclick="openSecureLink('https://github.com/wakademahi/Practice-Project/tree/main/microfrontend-demo')" type="button">
                 <span>View GitHub</span>
                 <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span>
-              </a>
+              </button>
             </div>
           </div>
 
@@ -587,10 +587,10 @@
             </div>
             <div class="project-footer">
               <span style="color: var(--text-muted);">Open Source Experiment</span>
-              <a href="https://github.com/wakademahi/Practice-Project/tree/main/react-list-ui" target="_blank" rel="noopener noreferrer" class="btn-request-demo">
+              <button class="btn-request-demo" onclick="openSecureLink('https://github.com/wakademahi/Practice-Project/tree/main/react-list-ui')" type="button">
                 <span>View GitHub</span>
                 <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span>
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -793,16 +793,15 @@
               </div>
             </div>
           </div>
-
           <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
-            <a href="https://www.linkedin.com/in/wakademahi0210/" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            <button class="btn-secondary" onclick="openSecureLink('https://www.linkedin.com/in/wakademahi0210/')" type="button">
               <span class="material-symbols-outlined" style="font-size: 16px;">link</span>
               LinkedIn
-            </a>
-            <a href="https://github.com/wakademahi/mahesh_wakade" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            </button>
+            <button class="btn-secondary" onclick="openSecureLink('https://github.com/wakademahi/mahesh_wakade')" type="button">
               <span class="material-symbols-outlined" style="font-size: 16px;">code</span>
               GitHub
-            </a>
+            </button>
           </div>
         </div>
 
@@ -843,8 +842,8 @@
     <div class="container footer-inner">
       <span>© 2026 Mahesh Wakade. All rights reserved.</span>
       <div style="display: flex; align-items: center; gap: 1.5rem;">
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted);">GitHub</a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted);">LinkedIn</a>
+        <button class="footer-link-btn" onclick="openSecureLink('https://github.com/wakademahi/mahesh_wakade')" type="button">GitHub</button>
+        <button class="footer-link-btn" onclick="openSecureLink('https://www.linkedin.com/in/wakademahi0210/')" type="button">LinkedIn</button>
         <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="btn-secondary" style="padding: 0.35rem 0.65rem;" title="Back to top">
           <span class="material-symbols-outlined" style="font-size: 16px;">arrow_upward</span>
         </button>
