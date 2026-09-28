@@ -6,6 +6,23 @@
   <title>Mahesh Wakade — Senior Frontend Developer | Angular & Ionic Specialist</title>
   <meta name="description" content="Senior Frontend & Ionic Developer with 10+ years experience building scalable enterprise web and hybrid mobile applications." />
 
+  <!-- Favicon & Browser Title Icon -->
+  <link rel="icon" type="image/jpeg" href="assets/images/profile.jpg">
+  <link rel="shortcut icon" type="image/jpeg" href="assets/images/profile.jpg">
+  <link rel="apple-touch-icon" href="assets/images/profile.jpg">
+
+  <!-- Open Graph / Social Sharing Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mahesh Wakade — Senior Frontend Developer | Angular & Ionic Specialist">
+  <meta property="og:description" content="Senior Frontend & Ionic Developer with 10+ years experience building scalable enterprise web and hybrid mobile applications.">
+  <meta property="og:image" content="assets/images/profile.jpg">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mahesh Wakade — Senior Frontend Developer">
+  <meta name="twitter:description" content="Senior Frontend & Ionic Developer with 10+ years experience building scalable enterprise web and hybrid mobile applications.">
+  <meta name="twitter:image" content="assets/images/profile.jpg">
+
   <!-- Google Fonts & Material Symbols -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,18 +42,18 @@
   <!-- Header -->
   <header>
     <div class="nav-wrapper">
-      <a href="#home" class="logo">
-        <span class="logo-badge">MW</span>
+     <button class="logo" onclick="scrollToSection('home')" type="button" aria-label="Scroll to home">
+        <img data-asset="profile" alt="Mahesh Wakade" class="logo-profile-pic">
         <span>Mahesh Wakade</span>
-      </a>
+      </button>
 
       <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#contact">Contact</a>
+        <button class="nav-link-btn" onclick="scrollToSection('about')" type="button">About</button>
+        <button class="nav-link-btn" onclick="scrollToSection('skills')" type="button">Skills</button>
+        <button class="nav-link-btn" onclick="scrollToSection('experience')" type="button">Experience</button>
+        <button class="nav-link-btn" onclick="scrollToSection('projects')" type="button">Projects</button>
+        <button class="nav-link-btn" onclick="scrollToSection('certifications')" type="button">Certifications</button>
+        <button class="nav-link-btn" onclick="scrollToSection('contact')" type="button">Contact</button>
       </nav>
 
       <div class="nav-actions">
@@ -55,12 +72,12 @@
 
     <!-- Mobile Menu Dropdown -->
     <div class="mobile-menu" id="mobile-menu">
-      <a href="#about" onclick="closeMobileMenu()">About</a>
-      <a href="#skills" onclick="closeMobileMenu()">Skills</a>
-      <a href="#experience" onclick="closeMobileMenu()">Experience</a>
-      <a href="#projects" onclick="closeMobileMenu()">Projects</a>
-      <a href="#certifications" onclick="closeMobileMenu()">Certifications</a>
-      <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+      <button class="nav-link-btn" onclick="scrollToSection('about'); closeMobileMenu();" type="button">About</button>
+      <button class="nav-link-btn" onclick="scrollToSection('skills'); closeMobileMenu();" type="button">Skills</button>
+      <button class="nav-link-btn" onclick="scrollToSection('experience'); closeMobileMenu();" type="button">Experience</button>
+      <button class="nav-link-btn" onclick="scrollToSection('projects'); closeMobileMenu();" type="button">Projects</button>
+      <button class="nav-link-btn" onclick="scrollToSection('certifications'); closeMobileMenu();" type="button">Certifications</button>
+      <button class="nav-link-btn" onclick="scrollToSection('contact'); closeMobileMenu();" type="button">Contact</button>
       <button class="btn-download-resume" style="width: 100%; justify-content: center;" onclick="closeMobileMenu(); downloadResume();" type="button">
         <span class="material-symbols-outlined" style="font-size: 16px;">download</span>
         Download Resume
@@ -96,10 +113,10 @@
         </div>
 
         <div class="hero-actions">
-          <a href="#projects" class="btn-primary">
+          <button onclick="scrollToSection('projects')" class="btn-primary" type="button">
             <span>View My Work</span>
             <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
-          </a>
+          </button>
           <button class="btn-secondary" onclick="downloadResume()" type="button">
             <span class="material-symbols-outlined" style="font-size: 18px; color: var(--primary);">download</span>
             <span>Download Resume</span>
