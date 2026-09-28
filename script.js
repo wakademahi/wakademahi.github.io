@@ -76,7 +76,7 @@ function executeCommand(cmd) {
 
   switch (cmd) {
     case 'help':
-      outputHTML += `<p class="term-cyan">Available commands: skills, experience, projects, contact, status, build, clear</p>`;
+      outputHTML += `<p class="term-cyan">Available commands: skills, experience, projects, contact, status, build, resume, clear</p>`;
       break;
     case 'skills':
       outputHTML += `<p>Core Stack: Angular (v2-18), TypeScript, Ionic, RxJS, Microfrontends, Capacitor, Tailwind CSS</p>`;
@@ -92,6 +92,10 @@ function executeCommand(cmd) {
       break;
     case 'status':
       outputHTML += `<p class="term-success">AVAILABLE FOR OPPORTUNITIES — IMMEDIATE JOINER</p>`;
+      break;
+    case 'resume':
+      openResumeModal();
+      outputHTML += `<p class="term-success">✔ Initiated download for Mahesh_Wakade_Resume.pdf (assets/resume/resume.pdf)</p>`;
       break;
     case 'build':
       outputHTML += `<p>Compiling Angular & Ionic production bundle...</p>
@@ -172,11 +176,25 @@ function copyEmailHero() {
   }
 }
 
-// --- Modals (Resume & Project Demo) ---
+// --- Modals (Resume, Project Demo & Certificate) ---
 const resumeModal = document.getElementById('resume-modal');
 const demoModal = document.getElementById('demo-modal');
 
+// Clean resume download action without showcasing complete URL in browser status bar
+function downloadResume() {
+  const downloadLink = document.createElement('a');
+  downloadLink.href = 'assets/resume/Mahesh_Wakade_Sr_Frontend_Developer_Resume.pdf';
+  downloadLink.download = 'Mahesh_Wakade_Resume.pdf';
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+  document.body.removeChild(downloadLink);
+}
+
 function openResumeModal() {
+  downloadResume();
+}
+
+function previewResumeModal() {
   if (resumeModal) resumeModal.classList.add('open');
 }
 
@@ -184,6 +202,13 @@ function closeResumeModal(e) {
   if (!e || e.target === resumeModal || e.target.closest('.modal-close-btn') || e.target.closest('.btn-secondary')) {
     if (resumeModal) resumeModal.classList.remove('open');
   }
+}
+
+// Clean secure link opener without exposing complete URL in browser status bar on cursor hover
+function openSecureLink(url) {
+  if (!url) return;
+  const win = window.open(url, '_blank', 'noopener,noreferrer');
+  if (win) win.focus();
 }
 
 const DEMO_DATA = {
@@ -266,9 +291,10 @@ function closeDemoModal(e) {
   }
 }
 
-
 // --- Certificate Modal Logic ---
 const certificateModal = document.getElementById('certificate-modal');
+let activeCertificateKey = 'be10x';
+
 const CERTIFICATE_DATA = {
   be10x: {
     title: 'be10x AI Tools & Claude Workshop',
@@ -288,10 +314,10 @@ function openCertificateModal(key) {
   const data = CERTIFICATE_DATA[key];
   if (!data || !certificateModal) return;
 
+  activeCertificateKey = key;
   const titleEl = document.getElementById('cert-modal-title');
   const issuerEl = document.getElementById('cert-modal-issuer');
   const imgEl = document.getElementById('cert-modal-image');
-  const downloadEl = document.getElementById('cert-modal-download');
 
   if (titleEl) titleEl.textContent = data.title;
   if (issuerEl) issuerEl.textContent = data.issuer;
@@ -299,12 +325,25 @@ function openCertificateModal(key) {
     imgEl.src = data.image;
     imgEl.alt = data.title;
   }
-  if (downloadEl) {
-    downloadEl.href = data.image;
-    downloadEl.download = data.downloadName;
-  }
 
   certificateModal.classList.add('open');
+}
+
+function downloadCurrentCertificate() {
+  const data = CERTIFICATE_DATA[activeCertificateKey];
+  if (!data) return;
+  const downloadLink = document.createElement('a');
+  downloadLink.href = data.image;
+  downloadLink.download = data.downloadName;
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+  document.body.removeChild(downloadLink);
+}
+
+function viewFullCertificate() {
+  const data = CERTIFICATE_DATA[activeCertificateKey];
+  if (!data) return;
+  openSecureLink(data.image);
 }
 
 function closeCertificateModal(e) {
