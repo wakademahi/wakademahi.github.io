@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahesh Wakade — Senior Frontend Developer | Angular & Ionic Specialist</title>
+  <meta name="description" content="Senior Frontend & Ionic Developer with 10+ years experience building scalable enterprise web and hybrid mobile applications." />
+
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+  <!-- External Stylesheet (style.css) -->
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- Ambient light effects -->
+  <div class="glow-orb-1"></div>
+  <div class="glow-orb-2"></div>
+  <div class="glow-orb-3"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-wrapper">
+      <a href="#home" class="logo">
+        <span class="logo-badge">MW</span>
+        <span>Mahesh Wakade</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle theme">
+          <span class="material-symbols-outlined">light_mode</span>
+        </button>
+        <a href="assets/resume/Mahesh_Wakade_Sr_Frontend_Developer_Resume.pdf" download="Mahesh_Wakade_Resume.pdf" class="btn-download-resume">
+          <span class="material-symbols-outlined" style="font-size: 16px;">download</span>
+          Download Resume
+        </a>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open navigation menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#about" onclick="closeMobileMenu()">About</a>
+      <a href="#skills" onclick="closeMobileMenu()">Skills</a>
+      <a href="#experience" onclick="closeMobileMenu()">Experience</a>
+      <a href="#projects" onclick="closeMobileMenu()">Projects</a>
+      <a href="#certifications" onclick="closeMobileMenu()">Certifications</a>
+      <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+      <a href="assets/resume/Mahesh_Wakade_Sr_Frontend_Developer_Resume.pdf" download="Mahesh_Wakade_Resume.pdf" class="btn-download-resume" style="width: 100%; justify-content: center;" onclick="closeMobileMenu()">
+        <span class="material-symbols-outlined" style="font-size: 16px;">download</span>
+        Download Resume
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div>
+        <div class="badge-pill">
+          <span class="status-dot"></span>
+          <span>AVAILABLE FOR OPPORTUNITIES — IMMEDIATE JOINER</span>
+        </div>
+
+        <h1>
+          Senior Frontend Developer building <span class="gradient-text">scalable, modern web experiences</span>
+        </h1>
+
+        <p class="lead">
+          10+ years of experience developing and delivering enterprise-scale web and hybrid mobile applications with <strong style="color: var(--text-main);">Angular, TypeScript and Ionic</strong>. Based in Pune, India.
+        </p>
+
+        <div class="tech-pill-list">
+          <span class="tech-pill">Angular</span>
+          <span class="tech-pill">TypeScript</span>
+          <span class="tech-pill">Ionic</span>
+          <span class="tech-pill">RxJS</span>
+          <span class="tech-pill">Microfrontends</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary">
+            <span>View My Work</span>
+            <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+          </a>
+          <a href="assets/resume/Mahesh_Wakade_Frontend_Developer_Resume.pdf" download="Mahesh_Wakade_Resume.pdf" class="btn-secondary">
+            <span class="material-symbols-outlined" style="font-size: 18px; color: var(--primary);">download</span>
+            <span>Download Resume</span>
+          </a>
+        </div>
+
+        <div class="connect-row">
+          <span style="font-size: 0.72rem; text-transform: uppercase;">Connect:</span>
+          <a href="https://www.linkedin.com/in/wakademahi0210/" target="_blank" rel="noopener noreferrer">
+            <span class="material-symbols-outlined" style="font-size: 15px;">link</span> LinkedIn
+          </a>
+          <a href="https://github.com/wakademahi/mahesh_wakade" target="_blank" rel="noopener noreferrer">
+            <span class="material-symbols-outlined" style="font-size: 15px;">code</span> GitHub
+          </a>
+          <button onclick="copyEmailHero()">
+            <span class="material-symbols-outlined" style="font-size: 15px;">mail</span>
+            <span id="hero-email-text">Email</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Terminal -->
+      <div>
+        <div class="terminal-card">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <span class="terminal-title">mahesh-workspace — zsh — 80x24</span>
+            <span class="terminal-badge">Angular v18 + Ionic</span>
+          </div>
+
+          <div class="terminal-body" id="terminal-logs">
+            <p><span class="term-arrow">➜</span> <span class="term-folder">mw-core</span> <span class="term-cmd">git status</span></p>
+            <p class="term-success">On branch main. Enterprise apps optimized & ready.</p>
+            <p><span class="term-arrow">➜</span> <span class="term-folder">mw-core</span> <span class="term-cmd">ng g mfe enterprise-shell</span></p>
+            <p class="term-cyan">✔ Native Federation initialized successfully.</p>
+            <p><span class="term-arrow">➜</span> <span class="term-folder">mw-core</span> <span class="term-cmd">ionic cordova build android --prod</span></p>
+            <p class="term-cmd">BUILD SUCCESSFUL in 14.2s — 0 errors, 0 warnings.</p>
+            <p class="term-comment">// Senior Frontend Developer | Pune, India</p>
+            <p class="term-comment">// Status: Immediate Joiner | 10+ Years Exp</p>
+          </div>
+
+          <form id="terminal-form" onsubmit="handleTerminalCommand(event)" style="padding: 0 1.25rem 0.75rem 1.25rem;">
+            <div class="terminal-input-row">
+              <span class="term-arrow">➜</span>
+              <span class="term-folder">mw-core</span>
+              <input type="text" id="terminal-input" placeholder="Type a command (help, skills, build)..." autocomplete="off">
+            </div>
+          </form>
+
+          <div class="terminal-quick-chips">
+            <span style="font-family: var(--font-mono); font-size: 0.65rem; color: #6b7280; text-transform: uppercase;">Quick:</span>
+            <button class="chip-btn" onclick="runQuickCommand('skills')">skills</button>
+            <button class="chip-btn" onclick="runQuickCommand('experience')">experience</button>
+            <button class="chip-btn" onclick="runQuickCommand('projects')">projects</button>
+            <button class="chip-btn" onclick="runQuickCommand('status')">status</button>
+            <button class="chip-btn" onclick="runQuickCommand('build')">build</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about">
+      <span class="section-tag">Professional Profile</span>
+      <h2 class="section-title">About Me</h2>
+
+      <div class="about-grid">
+        <div class="about-bio">
+          <p>
+            I am a <strong>Senior Frontend & Ionic Developer</strong> with over <strong>10 years of professional experience</strong> developing and delivering enterprise-scale web and hybrid mobile applications. Based in <strong>Pune, India</strong>, I specialize in the modern Angular ecosystem, TypeScript, RxJS, and clean component architectures.
+          </p>
+          <p>
+            Throughout my career at companies like Greentin Solutions, Edynamics, and Exuberant Systems, I have successfully delivered complex platforms including employee engagement ecosystems, skill matrix solutions, and microfrontend architectures. I thrive on translating intricate business logic into seamless, lightning-fast user interfaces with rigorous attention to detail and maintainability.
+          </p>
+
+          <div class="about-badges">
+            <div class="about-badge-item">
+              <span class="material-symbols-outlined" style="color: var(--primary); font-size: 18px;">location_on</span>
+              <span>Pune, Maharashtra, India</span>
+            </div>
+            <div class="about-badge-item">
+              <span class="material-symbols-outlined" style="color: var(--emerald); font-size: 18px;">check_circle</span>
+              <span>Immediate Joiner</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-cards-grid">
+          <div class="stat-card">
+            <span class="stat-number" style="color: var(--primary);">10+</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" style="color: var(--cyan);">20+</span>
+            <span class="stat-label">Production Releases</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" style="color: var(--purple);">50+</span>
+            <span class="stat-label">REST API Integrations</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" style="color: var(--amber);">Web + Mobile</span>
+            <span class="stat-label">Cross-platform Solutions</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- What I Do -->
+      <div>
+        <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem;">What I Do</h3>
+        <div class="cards-grid-3">
+          <div class="service-card">
+            <div class="service-icon"><span class="material-symbols-outlined" style="color: var(--primary);">architecture</span></div>
+            <h4>Frontend Architecture</h4>
+            <p>Designing scalable folder structures, modular patterns, and robust design systems for large enterprise codebases.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><span class="material-symbols-outlined" style="color: var(--cyan);">code</span></div>
+            <h4>Angular Development</h4>
+            <p>Building reactive apps using Standalone Components, Signals, RxJS, and strict TypeScript typing.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><span class="material-symbols-outlined" style="color: var(--purple);">smartphone</span></div>
+            <h4>Hybrid Mobile Apps</h4>
+            <p>Developing high-performance cross-platform mobile apps for iOS and Android using Ionic and Capacitor.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><span class="material-symbols-outlined" style="color: var(--amber);">hub</span></div>
+            <h4>Microfrontend Integration</h4>
+            <p>Contributed to the frontend implementation and integration of a modern microfrontend setup as part of the development team.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><span class="material-symbols-outlined" style="color: var(--primary);">bolt</span></div>
+            <h4>Performance Optimization</h4>
+            <p>Optimizing render cycles, lazy loading, and RxJS data streams to deliver lightning-fast enterprise web apps.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><span class="material-symbols-outlined" style="color: var(--cyan);">api</span></div>
+            <h4>REST API Integration</h4>
+            <p>Seamlessly connecting robust backend services with reactive frontend modules for reliable data synchronization.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section id="skills">
+      <div class="skills-header-row">
+        <div>
+          <span class="section-tag">Technical Proficiency</span>
+          <h2 class="section-title" style="margin-bottom: 0;">Technical Skills</h2>
+        </div>
+        <div class="skills-search">
+          <span class="material-symbols-outlined">search</span>
+          <input type="text" id="skills-search-input" placeholder="Search skills (e.g. Angular)..." oninput="filterSkills()">
+        </div>
+      </div>
+
+      <div class="cards-grid-4" id="skills-container">
+        <!-- Frontend -->
+        <div class="skill-card" data-category="frontend">
+          <div class="skill-card-top">
+            <span class="material-symbols-outlined" style="color: var(--primary);">web</span>
+            <h3>Frontend</h3>
+          </div>
+          <div class="skill-tag-list">
+            <button class="skill-badge" onclick="copySkill('Angular (v2-18)')">Angular (v2-18)</button>
+            <button class="skill-badge" onclick="copySkill('TypeScript')">TypeScript</button>
+            <button class="skill-badge" onclick="copySkill('JavaScript (ES6+)')">JavaScript (ES6+)</button>
+            <button class="skill-badge" onclick="copySkill('HTML5 / CSS3')">HTML5 / CSS3</button>
+            <button class="skill-badge" onclick="copySkill('Tailwind CSS')">Tailwind CSS</button>
+            <button class="skill-badge" onclick="copySkill('RxJS')">RxJS</button>
+          </div>
+        </div>
+
+        <!-- Mobile -->
+        <div class="skill-card" data-category="mobile">
+          <div class="skill-card-top">
+            <span class="material-symbols-outlined" style="color: var(--cyan);">phone_iphone</span>
+            <h3>Mobile</h3>
+          </div>
+          <div class="skill-tag-list">
+            <button class="skill-badge" onclick="copySkill('Ionic Framework')">Ionic Framework</button>
+            <button class="skill-badge" onclick="copySkill('Capacitor')">Capacitor</button>
+            <button class="skill-badge" onclick="copySkill('Cordova')">Cordova</button>
+            <button class="skill-badge" onclick="copySkill('Cross-Platform UI')">Cross-Platform UI</button>
+            <button class="skill-badge" onclick="copySkill('Native Bridge Integration')">Native Bridge Integration</button>
+          </div>
+        </div>
+
+        <!-- Architecture -->
+        <div class="skill-card" data-category="architecture">
+          <div class="skill-card-top">
+            <span class="material-symbols-outlined" style="color: var(--purple);">domain</span>
+            <h3>Frontend Architecture</h3>
+          </div>
+          <div class="skill-tag-list">
+            <button class="skill-badge" onclick="copySkill('Microfrontends')">Microfrontends</button>
+            <button class="skill-badge" onclick="copySkill('Module Federation')">Module Federation</button>
+            <button class="skill-badge" onclick="copySkill('RESTful APIs')">RESTful APIs</button>
+            <button class="skill-badge" onclick="copySkill('Design Systems')">Design Systems</button>
+            <button class="skill-badge" onclick="copySkill('Performance Tuning')">Performance Tuning</button>
+          </div>
+        </div>
+
+        <!-- Tools & DevOps -->
+        <div class="skill-card" data-category="tools">
+          <div class="skill-card-top">
+            <span class="material-symbols-outlined" style="color: var(--amber);">terminal</span>
+            <h3>Tools & DevOps</h3>
+          </div>
+          <div class="skill-tag-list">
+            <button class="skill-badge" onclick="copySkill('Git / GitHub')">Git / GitHub</button>
+            <button class="skill-badge" onclick="copySkill('VS Code')">VS Code</button>
+            <button class="skill-badge" onclick="copySkill('Jira / Agile')">Jira / Agile</button>
+            <button class="skill-badge" onclick="copySkill('AI Tools (ChatGPT / Claude)')">AI Tools (ChatGPT / Claude)</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Timeline Section -->
+    <section id="experience">
+      <span class="section-tag">Career Journey</span>
+      <h2 class="section-title">Experience Timeline</h2>
+
+      <div class="timeline">
+        <!-- Role 1 -->
+        <div class="timeline-item">
+          <div class="timeline-dot active"></div>
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Senior Software Engineer – Frontend & Hybrid Mobile Developer</div>
+              <div class="timeline-company">Greentin Solutions Pvt. Ltd., Pune</div>
+            </div>
+            <span class="timeline-period">2018 – 2026 (8 Years)</span>
+          </div>
+          <p class="timeline-desc">
+            Spearheaded 20+ production releases and integrated 50+ REST APIs across enterprise web & hybrid mobile solutions using Angular, Ionic, Capacitor, RxJS, and TypeScript. Contributed to the development of the myNu AI Assistant and implemented robust microfrontend integrations.
+          </p>
+          <div class="achievement-grid">
+            <div class="achievement-card">
+              <span class="achievement-label" style="color: var(--primary);">Key Achievement</span>
+              <p>Architected and delivered <strong>myeNovation</strong> enterprise platform covering E-Suggestions, Kaizen, Audit, Nearmiss, PMS, and Skill Book modules with 40% reduction in duplicate entries.</p>
+            </div>
+            <div class="achievement-card">
+              <span class="achievement-label" style="color: var(--cyan);">Performance & Efficiency</span>
+              <p>Achieved 30% performance improvement and 40% reduction in development effort through reusable component libraries and optimized data streams.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Role 2 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Hybrid Mobile Application Developer</div>
+              <div class="timeline-company">Edynamics Business Services LLP, Pune</div>
+            </div>
+            <span class="timeline-period">2017 – 2018 (1 Year)</span>
+          </div>
+          <p class="timeline-desc">
+            Focused on cross-platform mobile and web application development for ERP and CRM domains using Ionic, Angular, Cordova, MySQL, and REST APIs. Built smooth device-native UI bridges and optimized data synchronization.
+          </p>
+        </div>
+
+        <!-- Role 3 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Web Developer</div>
+              <div class="timeline-company">Exuberant Systems Pvt. Ltd., Pune</div>
+            </div>
+            <span class="timeline-period">2016 – 2017 (1 Year)</span>
+          </div>
+          <p class="timeline-desc">
+            Developed and maintained responsive web applications and hybrid mobile apps for Real Estate and CRM domains utilizing Ionic, Angular, PHP/CodeIgniter, MySQL, and Cordova.
+          </p>
+        </div>
+      </div>
+
+      <!-- Progression Flow -->
+      <!--<div style="margin-top: 3.5rem;">
+        <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.25rem;">Career Progression Flow</h3>
+        <div class="career-flow-container">
+          <div class="flow-step">
+            <span class="flow-phase" style="color: var(--primary);">Phase 1</span>
+            <span class="flow-title">Web Development</span>
+            <span class="flow-sub">Exuberant Systems</span>
+          </div>
+          <span class="material-symbols-outlined" style="color: var(--text-muted); opacity: 0.5;">arrow_forward</span>
+          <div class="flow-step">
+            <span class="flow-phase" style="color: var(--cyan);">Phase 2</span>
+            <span class="flow-title">Hybrid Mobile Dev</span>
+            <span class="flow-sub">Edynamics Business</span>
+          </div>
+          <span class="material-symbols-outlined" style="color: var(--text-muted); opacity: 0.5;">arrow_forward</span>
+          <div class="flow-step">
+            <span class="flow-phase" style="color: var(--purple);">Phase 3</span>
+            <span class="flow-title">Frontend Engineering</span>
+            <span class="flow-sub">Greentin Solutions</span>
+          </div>
+          <span class="material-symbols-outlined" style="color: var(--text-muted); opacity: 0.5;">arrow_forward</span>
+          <div class="flow-step">
+            <span class="flow-phase" style="color: var(--amber);">Phase 4</span>
+            <span class="flow-title">Senior Frontend Eng.</span>
+            <span class="flow-sub">Architecture & Leadership</span>
+          </div>
+          <span class="material-symbols-outlined" style="color: var(--text-muted); opacity: 0.5;">arrow_forward</span>
+          <div class="flow-step">
+            <span class="flow-phase" style="color: var(--emerald);">Phase 5</span>
+            <span class="flow-title">Modern Angular & AI</span>
+            <span class="flow-sub">Microfrontends & myNu AI</span>
+          </div>
+        </div>
+      </div>-->
+
+      <!-- 6 Metrics -->
+      <div style="margin-top: 3.5rem;">
+        <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.25rem;">Career Highlights & Metrics</h3>
+        <div class="metrics-6-grid">
+          <div class="metric-small-card">
+            <span class="stat-number" style="color: var(--primary);">10+</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="metric-small-card">
+            <span class="stat-number" style="color: var(--cyan);">20+</span>
+            <span class="stat-label">Production Releases</span>
+          </div>
+          <div class="metric-small-card">
+            <span class="stat-number" style="color: var(--purple);">50+</span>
+            <span class="stat-label">REST API Integrations</span>
+          </div>
+          <div class="metric-small-card">
+            <span class="stat-number" style="color: var(--amber);">30%</span>
+            <span class="stat-label">Performance Improvement</span>
+          </div>
+          <div class="metric-small-card">
+            <span class="stat-number" style="color: var(--emerald);">40%</span>
+            <span class="stat-label">Effort Reduction</span>
+          </div>
+          <div class="metric-small-card">
+            <span class="stat-number" style="color: var(--primary);">40%</span>
+            <span class="stat-label">Less Duplication</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="projects">
+      <span class="section-tag">Portfolio Showcase</span>
+      <h2 class="section-title">Featured Projects</h2>
+
+      <div class="projects-grid" id="projects-grid">
+        <!-- Project 1: myeNovation -->
+        <div class="project-card" data-tags="Angular,TypeScript,RxJS,myNu AI Assistant">
+          <div>
+            <div class="project-top">
+              <div class="project-icon"><span class="material-symbols-outlined" style="color: var(--primary);">dashboard</span></div>
+              <span class="project-badge emerald">Enterprise Platform</span>
+            </div>
+            <h3>myeNovation</h3>
+            <div class="project-tagline">Employee Engagement & Continuous Improvement</div>
+            <p>Comprehensive Employee Engagement Application featuring E-Suggestions, Kaizen, Audit, Nearmiss, PMS, Skill Book, and Concerns management modules. Integrated with myNu AI Assistant for intelligent workflow automation.</p>
+            <div class="tech-pill-list" style="margin: 1rem 0 0 0;">
+              <span class="tech-pill">Angular</span>
+              <span class="tech-pill">TypeScript</span>
+              <span class="tech-pill">RxJS</span>
+              <span class="tech-pill">myNu AI Assistant</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Skill Matrix -->
+        <div class="project-card" data-tags="Angular,RxJS,REST APIs,Tailwind CSS">
+          <div>
+            <div class="project-top">
+              <div class="project-icon"><span class="material-symbols-outlined" style="color: var(--purple);">badge</span></div>
+              <span class="project-badge purple">Competency Solution</span>
+            </div>
+            <h3>Skill Matrix</h3>
+            <div class="project-tagline">Workforce Skill Mapping & Gap Analysis</div>
+            <p>Skill Mapping & Gap Analysis Platform enabling organizations to map workforce capabilities, pinpoint skill deficits, and plan targeted training modules.</p>
+            <div class="tech-pill-list" style="margin: 1rem 0 0 0;">
+              <span class="tech-pill">Angular</span>
+              <span class="tech-pill">RxJS</span>
+              <span class="tech-pill">REST APIs</span>
+              <span class="tech-pill">Tailwind CSS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: PACE -->
+        <div class="project-card" data-tags="Angular,Ionic,TypeScript,SCSS">
+          <div>
+            <div class="project-top">
+              <div class="project-icon"><span class="material-symbols-outlined" style="color: var(--cyan);">school</span></div>
+              <span class="project-badge cyan">Training Platform</span>
+            </div>
+            <h3>PACE</h3>
+            <div class="project-tagline">Operator & Engineer Training Ecosystem</div>
+            <p>Skill Enhancement Platform engineered specifically for operators and engineers. Provides targeted learning paths, tracking modules, and interactive assessment dashboards.</p>
+            <div class="tech-pill-list" style="margin: 1rem 0 0 0;">
+              <span class="tech-pill">Angular</span>
+              <span class="tech-pill">Ionic</span>
+              <span class="tech-pill">TypeScript</span>
+              <span class="tech-pill">SCSS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Call Manager App -->
+        <div class="project-card" data-tags="Angular,Ionic,Cloud Telephony API,TypeScript">
+          <div>
+            <div class="project-top">
+              <div class="project-icon"><span class="material-symbols-outlined" style="color: var(--amber);">phone_in_talk</span></div>
+              <span class="project-badge amber">Business OS Platform</span>
+            </div>
+            <h3>Call Manager App</h3>
+            <div class="project-tagline">Integrated Telephony & Dispatch CRM</div>
+            <p>Business OS Platform with cloud telephony integration for streamlined call management, logging, customer communication history, and real-time agent dispatch.</p>
+            <div class="tech-pill-list" style="margin: 1rem 0 0 0;">
+              <span class="tech-pill">Angular</span>
+              <span class="tech-pill">Ionic</span>
+              <span class="tech-pill">Cloud Telephony API</span>
+              <span class="tech-pill">TypeScript</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Personal Development Projects -->
+      <div style="margin-top: 4.5rem;">
+        <span class="section-tag">Independent R&D</span>
+        <h3 class="section-title">Personal Development Projects</h3>
+
+        <div class="projects-grid">
+          <!-- Personal 1 -->
+          <div class="project-card">
+            <div>
+              <div class="project-top">
+                <div class="project-icon"><span class="material-symbols-outlined" style="color: var(--primary);">hub</span></div>
+                <span class="project-badge" style="color: var(--primary); background: rgba(173, 198, 255, 0.1); border: 1px solid rgba(173, 198, 255, 0.2);">2026 — Personal GitHub</span>
+              </div>
+              <h3>Micro Frontend Sample Application</h3>
+              <p>Experimental architecture project exploring Native Federation, Module Federation, and standalone Angular components for independent micro-app deployment.</p>
+              <div class="tech-pill-list" style="margin: 1rem 0 0 0;">
+                <span class="tech-pill">Angular</span>
+                <span class="tech-pill">Native Federation</span>
+                <span class="tech-pill">TypeScript</span>
+                <span class="tech-pill">Git</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <span style="color: var(--text-muted);">Open Source Experiment</span>
+              <a href="https://github.com/wakademahi/Practice-Project/tree/main/microfrontend-demo" target="_blank" rel="noopener noreferrer" class="btn-request-demo">
+                <span>View GitHub</span>
+                <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Personal 2 -->
+          <div class="project-card">
+            <div>
+              <div class="project-top">
+                <div class="project-icon"><span class="material-symbols-outlined" style="color: var(--cyan);">code</span></div>
+                <span class="project-badge" style="color: var(--cyan); background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.2);">2026 — Personal GitHub</span>
+              </div>
+              <h3>React Sample Application</h3>
+              <p>Modern single-page application built with Vite and React to explore high-performance component state management and REST API integrations.</p>
+              <div class="tech-pill-list" style="margin: 1rem 0 0 0;">
+                <span class="tech-pill">React</span>
+                <span class="tech-pill">Vite</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">REST APIs</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <span style="color: var(--text-muted);">Open Source Experiment</span>
+              <a href="https://github.com/wakademahi/Practice-Project/tree/main/react-list-ui" target="_blank" rel="noopener noreferrer" class="btn-request-demo">
+                <span>View GitHub</span>
+                <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+      <span class="section-tag">Continuous Learning</span>
+      <h2 class="section-title">Certifications & Continuous Learning</h2>
+
+      <div class="projects-grid">
+        <div class="project-card certificate-card" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem;">
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <span class="material-symbols-outlined" style="color: var(--primary); font-size: 28px;">verified</span>
+                <div>
+                  <h3 style="font-size: 1.15rem; margin: 0;">be10x AI Tools & Claude Workshop</h3>
+                  <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--primary);">Certified Professional</span>
+                </div>
+              </div>
+              <span class="project-badge emerald">Verified</span>
+            </div>
+            <p style="margin-top: 0.75rem;">be10X Certified Professional. Leveraging generative AI and LLMs for enhanced developer productivity and code generation.</p>
+          </div>
+          <div class="certificate-action-row" style="margin-top: 1.25rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border-subtle); padding-top: 1rem;">
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">be10X</span>
+            <button class="btn-secondary" style="padding: 0.45rem 0.9rem; font-size: 0.8rem;" onclick="openCertificateModal('be10x')">
+              <span class="material-symbols-outlined" style="font-size: 16px; color: var(--primary);">visibility</span>
+              <span>View Certificate</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="project-card certificate-card" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem;">
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <span class="material-symbols-outlined" style="color: var(--cyan); font-size: 28px;">verified</span>
+                <div>
+                  <h3 style="font-size: 1.15rem; margin: 0;">micro1 AI Interview Performance Certificate</h3>
+                  <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--cyan);">Top Performance Score</span>
+                </div>
+              </div>
+              <span class="project-badge cyan">Top 1%</span>
+            </div>
+            <p style="margin-top: 0.75rem;">Had an outstanding performance during micro1's AI Interview, showcasing advanced technical communication and problem-solving skills.</p>
+          </div>
+          <div class="certificate-action-row" style="margin-top: 1.25rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border-subtle); padding-top: 1rem;">
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">Micro1</span>
+            <button class="btn-secondary" style="padding: 0.45rem 0.9rem; font-size: 0.8rem;" onclick="openCertificateModal('micro1')">
+              <span class="material-symbols-outlined" style="font-size: 16px; color: var(--cyan);">visibility</span>
+              <span>View Certificate</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Methodology & How I Work -->
+    <section>
+      <span class="section-tag">Methodology</span>
+      <h2 class="section-title">How I Work</h2>
+
+      <div class="cards-grid-4">
+        <div class="service-card">
+          <div class="service-icon"><span class="material-symbols-outlined" style="color: var(--primary);">search</span></div>
+          <h4>Requirements Analysis</h4>
+          <p>Deeply understanding business needs and technical constraints before writing a single line of code.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><span class="material-symbols-outlined" style="color: var(--cyan);">design_services</span></div>
+          <h4>Modular Design</h4>
+          <p>Structuring applications into reusable, decoupled components for maximum scalability and testing ease.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><span class="material-symbols-outlined" style="color: var(--purple);">code_blocks</span></div>
+          <h4>Clean Implementation</h4>
+          <p>Writing strict TypeScript code following Angular best practices and reactive programming patterns.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><span class="material-symbols-outlined" style="color: var(--amber);">rocket_launch</span></div>
+          <h4>Deployment & Tuning</h4>
+          <p>Rigorous performance auditing, bundle optimization, and smooth CI/CD pipeline deployments.</p>
+        </div>
+      </div>
+
+      <!-- 6 Steps -->
+      <div style="margin-top: 3.5rem;">
+        <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.25rem;">Development Approach (6 Steps)</h3>
+        <div class="steps-6-grid">
+          <div class="step-card">
+            <span class="step-num">Step 01</span>
+            <h4>Discovery</h4>
+            <p>Analyze scope & architecture requirements.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">Step 02</span>
+            <h4>Wireframing</h4>
+            <p>Plan component hierarchy & UX flows.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">Step 03</span>
+            <h4>Scaffolding</h4>
+            <p>Set up Angular modules & routing.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">Step 04</span>
+            <h4>Development</h4>
+            <p>Implement reactive logic & UI bindings.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">Step 05</span>
+            <h4>Optimization</h4>
+            <p>Tune performance & lazy loading.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">Step 06</span>
+            <h4>Delivery</h4>
+            <p>Production build & mobile packaging.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Work With Me (Value Proposition) -->
+    <section>
+      <span class="section-tag">Value Proposition</span>
+      <h2 class="section-title">Why Work With Me</h2>
+
+      <div class="cards-grid-4">
+        <div class="service-card">
+          <div class="service-icon"><span class="material-symbols-outlined" style="color: var(--primary);">account_tree</span></div>
+          <h4>Clean Architecture</h4>
+          <p>Modular, testable, and maintainable codebases structured for long-term enterprise growth.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><span class="material-symbols-outlined" style="color: var(--cyan);">widgets</span></div>
+          <h4>Reusable Components</h4>
+          <p>Building comprehensive design systems and component libraries for rapid feature delivery.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><span class="material-symbols-outlined" style="color: var(--purple);">bolt</span></div>
+          <h4>Performance Focused</h4>
+          <p>Optimizing bundle sizes, lazy loading, and reactive data streams for blazing-fast user experiences.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><span class="material-symbols-outlined" style="color: var(--amber);">verified_user</span></div>
+          <h4>Enterprise Experience</h4>
+          <p>10+ years of proven delivery across complex industry verticals and cross-functional teams.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="contact-box">
+        <div class="contact-left">
+          <div>
+            <span class="section-tag">Get in Touch</span>
+            <h2 class="section-title" style="margin-bottom: 0.5rem;">Let's Build Something Great</h2>
+          </div>
+          <p class="desc">
+            I am currently available for senior frontend roles and consulting opportunities. Whether you need an Angular expert or an Ionic mobile specialist, let's connect!
+          </p>
+
+          <div class="contact-items">
+            <div class="contact-item-row">
+              <div class="contact-item-inner">
+                <span class="material-symbols-outlined" style="color: var(--primary);">mail</span>
+                <span>wakade.mahi@gmail.com</span>
+              </div>
+              <button class="btn-copy" onclick="copyText('wakade.mahi@gmail.com', this)" title="Copy email">
+                <span class="material-symbols-outlined" style="font-size: 18px;">content_copy</span>
+              </button>
+            </div>
+
+            <div class="contact-item-row">
+              <div class="contact-item-inner">
+                <span class="material-symbols-outlined" style="color: var(--primary);">mail</span>
+                <span>mahesh_wakade@yahoo.com</span>
+              </div>
+              <button class="btn-copy" onclick="copyText('mahesh_wakade@yahoo.com', this)" title="Copy email">
+                <span class="material-symbols-outlined" style="font-size: 18px;">content_copy</span>
+              </button>
+            </div>
+
+            <div class="contact-item-row">
+              <div class="contact-item-inner">
+                <span class="material-symbols-outlined" style="color: var(--cyan);">location_on</span>
+                <span>Pune, Maharashtra, India</span>
+              </div>
+            </div>
+
+            <div class="contact-item-row">
+              <div class="contact-item-inner">
+                <span class="material-symbols-outlined" style="color: var(--emerald);">check_circle</span>
+                <span>Immediate Joiner</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+            <a href="https://www.linkedin.com/in/wakademahi0210/" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              <span class="material-symbols-outlined" style="font-size: 16px;">link</span>
+              LinkedIn
+            </a>
+            <a href="https://github.com/wakademahi/mahesh_wakade" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              <span class="material-symbols-outlined" style="font-size: 16px;">code</span>
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <form class="contact-form" onsubmit="handleContactSubmit(event)">
+          <div id="contact-toast" class="toast-msg">
+            <span class="material-symbols-outlined" style="font-size: 18px;">check_circle</span>
+            <span>Message sent successfully! Thank you for reaching out.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-name">Name</label>
+            <input type="text" id="contact-name" placeholder="Your Name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-email">Email</label>
+            <input type="email" id="contact-email" placeholder="your.email@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" rows="4" placeholder="Discuss an opportunity or project..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">
+            <span class="material-symbols-outlined" style="font-size: 16px;">send</span>
+            Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </div> <!-- /container -->
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 Mahesh Wakade. All rights reserved.</span>
+      <div style="display: flex; align-items: center; gap: 1.5rem;">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted);">GitHub</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted);">LinkedIn</a>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="btn-secondary" style="padding: 0.35rem 0.65rem;" title="Back to top">
+          <span class="material-symbols-outlined" style="font-size: 16px;">arrow_upward</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Resume Preview Modal -->
+  <div class="modal-overlay" id="resume-modal" onclick="closeResumeModal(event)">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3>Mahesh Wakade — Resume Preview</h3>
+        <button class="modal-close-btn" onclick="closeResumeModal()">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+
+      <div class="modal-body" id="resume-body">
+        <div style="border-bottom: 1px solid var(--border-subtle); padding-bottom: 1rem;">
+          <h2 style="font-size: 1.6rem; color: var(--text-main); font-weight: 700;">Mahesh Wakade</h2>
+          <div style="font-size: 0.95rem; color: var(--primary); font-weight: 600; margin: 0.2rem 0;">
+            Senior Frontend Developer | Angular & Ionic Specialist
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted);">
+            Pune, Maharashtra, India · wakade.mahi@gmail.com · mahesh_wakade@yahoo.com · Immediate Joiner
+          </div>
+        </div>
+
+        <div>
+          <h4 style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--primary); text-transform: uppercase;">Professional Summary</h4>
+          <p style="margin-top: 0.35rem; color: var(--text-main);">
+            Senior Frontend & Ionic Developer with over 10 years of professional experience developing and delivering enterprise-scale web and hybrid mobile applications. Based in Pune, India, specializing in the modern Angular ecosystem, TypeScript, RxJS, and clean component architectures.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--primary); text-transform: uppercase;">Core Technical Competencies</h4>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.78rem; margin-top: 0.35rem;">
+            <div><strong>Frontend:</strong> Angular (v2-18), TypeScript, RxJS, HTML5, CSS3, Tailwind CSS</div>
+            <div><strong>Mobile:</strong> Ionic Framework, Capacitor, Cordova, Cross-Platform UI</div>
+            <div><strong>Architecture:</strong> Microfrontends, Module Federation, Design Systems</div>
+            <div><strong>Tools & AI:</strong> Git/GitHub, VS Code, Jira, Agile, ChatGPT, Claude</div>
+          </div>
+        </div>
+
+        <div>
+          <h4 style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--primary); text-transform: uppercase;">Work Experience</h4>
+          <div style="margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+            <div>
+              <div style="font-weight: 700; color: var(--text-main);">Senior Software Engineer — Greentin Solutions Pvt. Ltd. (2018 – 2026)</div>
+              <p style="font-size: 0.85rem;">Spearheaded 20+ production releases and 50+ REST APIs. Architected myeNovation platform resulting in 40% reduction in duplicate entries and 30% performance improvement.</p>
+            </div>
+            <div>
+              <div style="font-weight: 700; color: var(--text-main);">Hybrid Mobile Application Developer — Edynamics Business Services (2017 – 2018)</div>
+              <p style="font-size: 0.85rem;">Developed cross-platform ERP/CRM mobile and web applications with Ionic, Angular, and Cordova.</p>
+            </div>
+            <div>
+              <div style="font-weight: 700; color: var(--text-main);">Web Developer — Exuberant Systems Pvt. Ltd. (2016 – 2017)</div>
+              <p style="font-size: 0.85rem;">Engineered responsive real estate web applications and hybrid mobile apps.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="closeResumeModal()">Close</button>
+        <button class="btn-secondary" onclick="window.print()">
+          <span class="material-symbols-outlined" style="font-size: 16px;">print</span>
+          Print
+        </button>
+        <button class="btn-primary" onclick="window.print()">
+          <span class="material-symbols-outlined" style="font-size: 16px;">download</span>
+          Download PDF
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project Demo Detail Modal -->
+  <div class="modal-overlay" id="demo-modal" onclick="closeDemoModal(event)">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <div>
+          <span id="demo-modal-tag" style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--primary); text-transform: uppercase;">Enterprise Platform</span>
+          <h3 id="demo-modal-title" style="margin-top: 0.15rem;">Project Overview</h3>
+        </div>
+        <button class="modal-close-btn" onclick="closeDemoModal()">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div>
+          <h4 style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--primary); text-transform: uppercase; margin-bottom: 0.35rem;">Platform Overview</h4>
+          <p id="demo-modal-desc" style="color: var(--text-main);"></p>
+        </div>
+
+        <div>
+          <h4 style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--cyan); text-transform: uppercase; margin-bottom: 0.5rem;">Core Modules & Architecture</h4>
+          <ul id="demo-modal-modules" style="list-style-type: square; padding-left: 1.25rem; font-size: 0.85rem; line-height: 1.6;"></ul>
+        </div>
+
+        <div style="background: var(--surface-low); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1rem;">
+          <h4 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--amber); text-transform: uppercase; margin-bottom: 0.25rem;">Key Performance Metrics</h4>
+          <p id="demo-modal-metrics" style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--primary);"></p>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="closeDemoModal()">Close Preview</button>
+        <button class="btn-primary" onclick="closeDemoModal(); document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">
+          <span class="material-symbols-outlined" style="font-size: 16px;">mail</span>
+          Connect for Walkthrough
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Certificate View Modal -->
+  <div class="modal-overlay" id="certificate-modal" onclick="closeCertificateModal(event)">
+    <div class="modal-card certificate-modal-card" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <div>
+          <span id="cert-modal-issuer" style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--primary); text-transform: uppercase;">Credential Verification</span>
+          <h3 id="cert-modal-title" style="margin-top: 0.15rem;">Certificate Preview</h3>
+        </div>
+        <button class="modal-close-btn" onclick="closeCertificateModal()">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+
+      <div class="modal-body" style="padding: 1.25rem;">
+        <div class="certificate-preview-container">
+          <img id="cert-modal-image" src="" alt="Certificate" class="certificate-preview-img" />
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="closeCertificateModal()">Close</button>
+        <a id="cert-modal-download" href="" download="" target="_blank" class="btn-primary" style="text-decoration: none;">
+          <span class="material-symbols-outlined" style="font-size: 16px;">download</span>
+          Download Certificate
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pure External JavaScript (script.js) -->
+  <script src="/script.js"></script>
+</body>
+</html>
