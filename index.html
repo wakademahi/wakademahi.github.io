@@ -34,10 +34,12 @@
 </head>
 <body>
 
-  <!-- Ambient light effects -->
-  <div class="glow-orb-1"></div>
-  <div class="glow-orb-2"></div>
-  <div class="glow-orb-3"></div>
+  <!-- Ambient light effects (contained background layer) -->
+  <div class="ambient-glows" aria-hidden="true">
+    <div class="glow-orb-1"></div>
+    <div class="glow-orb-2"></div>
+    <div class="glow-orb-3"></div>
+  </div>
 
   <!-- Header -->
   <header>
@@ -91,9 +93,12 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
       <div>
-        <div class="badge-pill">
-          <span class="status-dot"></span>
-          <span>AVAILABLE FOR OPPORTUNITIES — IMMEDIATE JOINER</span>
+       <div class="hero-profile-row">
+          <img data-asset="profile" alt="Mahesh Wakade" class="hero-profile-pic">
+          <div class="badge-pill" style="margin-bottom: 0;">
+            <span class="status-dot"></span>
+            <span>AVAILABLE FOR OPPORTUNITIES — IMMEDIATE JOINER</span>
+          </div>
         </div>
 
         <h1>
@@ -189,6 +194,13 @@
 
       <div class="about-grid">
         <div class="about-bio">
+          <div class="about-author-header">
+            <img data-asset="profile" alt="Mahesh Wakade" class="about-avatar-img">
+            <div>
+              <h3 style="margin: 0; font-size: 1.25rem; color: var(--text-main);">Mahesh Wakade</h3>
+              <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--primary);">Senior Frontend & Ionic Specialist • 10+ Yrs Exp</span>
+            </div>
+          </div>
           <p>
             I am a <strong>Senior Frontend & Ionic Developer</strong> with over <strong>10 years of professional experience</strong> developing and delivering enterprise-scale web and hybrid mobile applications. Based in <strong>Pune, India</strong>, I specialize in the modern Angular ecosystem, TypeScript, RxJS, and clean component architectures.
           </p>
