@@ -49,6 +49,12 @@ html:not(.dark) {
   --primary: #2563eb;
   --border-subtle: #e2e8f0;
 }
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
 
 body {
   background-color: var(--bg);
